@@ -1,10 +1,13 @@
-version: "3"
+version: '3.8'
+
 services:
   expo-app:
     build: .
+    container_name: expo-mobile
     ports:
       - "19000:19000"
-      - "8081:8081"
+      - "19001:19001"
+      - "19002:19002"
     volumes:
       - .:/app
-    command: ["expo", "start", "--tunnel"]
+    command: npx expo start --tunnel
