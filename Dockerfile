@@ -1,19 +1,13 @@
-# Gunakan image Node dengan versi stabil
-FROM node:18
+FROM node:18-alpine
 
-# Install dependencies yang diperlukan untuk Expo dan Android build
-RUN apt-get update && apt-get install -y openjdk-17-jdk gradle && apt-get clean
+WORKDIR /app
 
-# Set work directory
-WORKDIR /usr/src/app
-
-# Copy package.json dan install dependency
 COPY package*.json ./
-RUN npm install --global expo-cli eas-cli
+RUN npm install -g expo-cli
 RUN npm install
 
-# Copy semua file proyek
 COPY . .
 
-# Jalankan Metro bundler secara default
-CMD ["npm", "start"]
+EXPOSE 19000 19001 19002
+
+CMD ["npx", "expo", "start", "--tunnel"]
