@@ -22,7 +22,7 @@ pipeline {
       }
     }
 
-    stage('Lint & Test (Optional)') {
+    stage('Lint & Test') {
       steps {
         echo 'Menjalankan lint/test untuk memastikan project berjalan baik'
         bat 'echo "Belum ada test untuk dijalankan"'
