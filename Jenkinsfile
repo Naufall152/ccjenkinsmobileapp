@@ -61,7 +61,7 @@ pipeline {
 
     stage('Pipeline Finished') {
       steps {
-        echo 'Pipeline selesai! Expo App kamu sudah jalan di Docker.'
+        echo 'Pipeline selesai!.'
       }
     }
   }
